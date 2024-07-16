@@ -1,17 +1,16 @@
 {
     "version": 2,
-    "rewrites": [
+    "name": "Colud-Notes",
+    "builds":[
         {
-            "source": "/(.*)",
-            "destination": "/api/notes"
+            "src": "index.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/api/auth"
         }
     ]
 }
-// {
-//     "rewrites": [
-//         {
-//             "source": "/(.*)",
-//             "destination": "/api/notes"
-//         }
-//     ]
-// }
