@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/api/notes"
+        }
+    ]
+}
+// {
+//     "rewrites": [
+//         {
+//             "source": "/(.*)",
+//             "destination": "/api/notes"
+//         }
+//     ]
+// }
