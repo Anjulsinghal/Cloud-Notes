@@ -12,7 +12,7 @@ const SignUp = (props) => {
         props.showAlert("Password does not match", "danger");
       }
       else{
-        const response = await fetch("http://localhost:5000/api/auth/createuser", {
+        const response = await fetch("https://cloud-notes-2.onrender.com/api/auth/createuser", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
