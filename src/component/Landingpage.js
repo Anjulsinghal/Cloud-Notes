@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import DemoLoginButton from "./DemoLoginButton";
 
 const Landingpage = () => {
   return (
@@ -27,6 +28,10 @@ const Landingpage = () => {
           <Link className="btn btn-outline-primary " to="/signup" role="button">
             Sing-Up
           </Link>
+          <DemoLoginButton> </DemoLoginButton>
+          {/* <button className="btn btn-outline-primary" onClick={demoHandler}>
+            Demo Account
+          </button> */}
         </div>
       </div>
       <div className="service">
