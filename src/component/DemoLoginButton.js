@@ -5,15 +5,17 @@ const DemoLoginButton = (props) => {
   let navigate = useNavigate();
 
   const handleDemoLogin = async () => {
-    const demoEmail = "anjulsinghal123@gmail.com";
-    const demoPassword = "anjul123";
+    const demoEmail = process.env.REACT_APP_TEMP_EMAIL;
+    const demoPassword = process.env.REACT_APP_TEMP_PASSWORD;
+
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     if (!demoEmail || !demoPassword) {
     //   props.showAlert("Demo credentials are not set up in .env file", "warning");
       return;
     }
 
-    const response = await fetch("https://cloud-notes-2.onrender.com/api/auth/login", {
+    const response = await fetch(`${apiUrl}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,9 +27,9 @@ const DemoLoginButton = (props) => {
     if (json.success) {
       localStorage.setItem("token", json.authToken);
       navigate("/");
-    //   props.showAlert("Logged in Successfully with Demo Account", "success");
+      props.showAlert("Logged in Successfully with Demo Account", "success");
     } else {
-    //   props.showAlert("Demo login failed", "danger");
+      props.showAlert("Demo login failed", "danger");
     }
   };
 

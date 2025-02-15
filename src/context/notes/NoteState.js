@@ -2,7 +2,7 @@ import { useState } from "react";
 import NoteContext from "./noteContext";
 
 const NoteState = (props) => {
-  const host = "https://cloud-notes-2.onrender.com";
+  const host = process.env.REACT_APP_API_URL;
   const notesInitial = [];
   const [notes, setNotes] = useState(notesInitial);
 
@@ -51,6 +51,7 @@ const NoteState = (props) => {
       return note._id !== id;
     });
     setNotes(newNotes);
+    props.showAlert("Deleted Successfully", "success");
   };
 
   //Edit a note

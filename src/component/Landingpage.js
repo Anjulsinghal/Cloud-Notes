@@ -1,37 +1,41 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import DemoLoginButton from "./DemoLoginButton";
+import img from "./slider.png";
 
-const Landingpage = () => {
+const Landingpage = (props) => {
   return (
     <>
       <div className="header">
-        <div className="headcon">
-          <h1>
-            Welcome to Cloud Notes:
-            <small> Your Digital Notebook in the Cloud</small>
-          </h1>
-
-          <p>
-            Discover the power of seamless note management with Cloud Notes.
-            Access your notes from anywhere, organize effortlessly, and stay
-            productive like never before.
-          </p>
-          <p>
-            Create, edit, and categorize notes effortlessly with Cloud Notes.
-            Our user-friendly interface is designed to enhance your productivity
-            and streamline your note-taking experience.
-          </p>
-          <Link className="btn btn-primary " to="/login" role="button">
-            Login
-          </Link>
-          <Link className="btn btn-outline-primary " to="/signup" role="button">
-            Sing-Up
-          </Link>
-          <DemoLoginButton> </DemoLoginButton>
-          {/* <button className="btn btn-outline-primary" onClick={demoHandler}>
-            Demo Account
-          </button> */}
+        <div className="header-container">
+          <div className="content-left">
+            <h1>
+              Welcome to Cloud Notes
+              <small>Your Digital Notebook in the Cloud</small>
+            </h1>
+            <p>
+              Discover the power of seamless note management with Cloud Notes.
+              Access your notes from anywhere, organize effortlessly, and stay
+              productive like never before.
+            </p>
+            <p>
+              Create, edit, and categorize notes effortlessly with Cloud Notes.
+              Our user-friendly interface is designed to enhance your productivity
+              and streamline your note-taking experience.
+            </p>
+            <div className="button-group">
+              <Link className="btn btn-primary" to="/login" role="button">
+                Login
+              </Link>
+              <Link className="btn btn-outline-primary" to="/signup" role="button">
+                Sign-Up
+              </Link>
+              <DemoLoginButton showAlert={props.showAlert}/>
+            </div>
+          </div>
+          <div className="content-right">
+            <img src={img} alt="Cloud Notes Interface" />
+          </div>
         </div>
       </div>
       <div className="service">

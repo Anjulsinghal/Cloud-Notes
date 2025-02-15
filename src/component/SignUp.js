@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom';
 
 const SignUp = (props) => {
+  const apiUrl = process.env.REACT_APP_API_URL;
   const [credentials, setCredentials] = useState({name: "", email: "", password: "", cpassword: ""});
   let navigate = useNavigate();
   const handelSubmit = async (e)=>{
@@ -12,7 +13,7 @@ const SignUp = (props) => {
         props.showAlert("Password does not match", "danger");
       }
       else{
-        const response = await fetch("https://cloud-notes-2.onrender.com/api/auth/createuser", {
+        const response = await fetch(`${apiUrl}/api/auth/createuser`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -56,8 +57,8 @@ const SignUp = (props) => {
           <input type="password" className="form-control" id="password" name='password' placeholder="Password" onChange={onChange} minLength={5} required/>
         </div>
         <div className="f1 form-group">
-          <label htmlFor="cpassword">Conform Password</label>
-          <input type="password" className="form-control" id="cpassword" name='cpassword' placeholder="Conform Password" onChange={onChange} minLength={5} required/>
+          <label htmlFor="cpassword">Confirm Password</label>
+          <input type="password" className="form-control" id="cpassword" name='cpassword' placeholder="Confirm Password" onChange={onChange} minLength={5} required/>
         </div>
         </div>
         <div className="logbotton">
@@ -67,7 +68,8 @@ const SignUp = (props) => {
         </div>
       </form>
 
-    </div>
+</div>
+
     </>
   )
 }

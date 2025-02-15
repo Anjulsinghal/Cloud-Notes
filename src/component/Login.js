@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = (props) => {
+  const apiUrl = process.env.REACT_APP_API_URL;
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let navigate = useNavigate();
   const handelSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://cloud-notes-2.onrender.com/api/auth/login", {
+    const response = await fetch(`${apiUrl}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +24,7 @@ const Login = (props) => {
         // document.body.style.backgroundColor = "#f3f4f8";
       }
       navigate("/");
-      props.showAlert("Loged in Successfully ", "success");
+      props.showAlert("Logged in Successfully ", "success");
     } else {
       props.showAlert("invalid email or password", "danger");
     }
@@ -37,7 +38,7 @@ const Login = (props) => {
         <form className="loginform" onSubmit={handelSubmit}>
           <h2>Login to Cloud-Notes</h2>
           <div className="form">
-            <div className=" f1 mb-3">
+            <div className="f1 mb-3">
               <label htmlFor="email" className="form-label">
                 Email address
               </label>
@@ -83,7 +84,7 @@ const Login = (props) => {
               to="/signup"
               role="button"
             >
-              Sing-Up
+              Sign-Up
             </Link>
           </div>
         </form>

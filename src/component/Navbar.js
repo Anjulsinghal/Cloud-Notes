@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/landingpage");
+    props.showAlert("Logout Successful", "success");
   };
   let location = useLocation();
   return (
@@ -73,7 +74,7 @@ const Navbar = () => {
                   to="signup"
                   role="button"
                 >
-                  Sing-Up
+                  Sign-Up
                 </Link>
               </form>
             ) : (
@@ -81,7 +82,7 @@ const Navbar = () => {
                 onClick={handleLogout}
                 className="btn btn-outline-primary "
               >
-                logout
+                Logout
               </button>
             )}
           </div>

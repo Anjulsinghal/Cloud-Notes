@@ -46,11 +46,6 @@ const Notes = (props) => {
   return (
     <div className="notepage">
 
-      {/* modal for adding new notes */}
-
-
-
-      {/* Modal button for updating notes */}
       <button
         type="button"
         ref={buttonRef}
